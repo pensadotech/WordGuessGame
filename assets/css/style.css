@@ -98,8 +98,18 @@ header .jumbotron {
     text-align: center;
 }
 
-/* Container ..................................... */
+.userGuess {
+    width: 270px;
+}
 
+
+@media screen and (max-width: 771px) {
+    .firstRow {
+        margin-top: 0px;
+    }
+}
+
+/* Container ..................................... */
 .container {
     background-color: #DBE9F4;
     /* Transparent background */
@@ -108,6 +118,17 @@ header .jumbotron {
     margin-bottom: 10px;
     /* Set min height to fill larger screens */
     min-height: 600px;
+}
+
+.secretWord {
+    color: green;
+}
+
+.prevLetters {
+    font-size: 30px;
+    font-weight: bold;
+    color: rgb(10, 13, 236);
+    text-align: left;
 }
 
 /*  Footer ..................................... */

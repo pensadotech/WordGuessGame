@@ -120,8 +120,16 @@ let wordGuessGame = {
   isValidKey(userGuess) {
     // it is a valid key if, 
     // 1. it is ENTER key, it is a number, a lower/upper case letter
-    if (userGuess === "Enter" ||
-      (userGuess.charCodeAt(0) >= 48 && userGuess.charCodeAt(0) <= 57) ||
+    // make sure not spaces are valid
+    userGuess = userGuess.trim();
+
+    if (userGuess.length > 1) {
+      // Evaulate keybord actions lik Backspace and such
+      if (userGuess === "Enter") {
+        return true;
+      }
+      return false;
+    } else if ((userGuess.charCodeAt(0) >= 48 && userGuess.charCodeAt(0) <= 57) ||
       (userGuess.charCodeAt(0) >= 65 && userGuess.charCodeAt(0) <= 90) ||
       (userGuess.charCodeAt(0) >= 97 && userGuess.charCodeAt(0) <= 122)) {
       return true;
@@ -166,6 +174,7 @@ let wordGuessGame = {
       this.displayAuxMessage("Wrong letter, try again ...");
     }
 
+    document.getElementById('userGuess').value = '';
     this.displayStatus();
   },
   // Process an correct guess
@@ -181,6 +190,7 @@ let wordGuessGame = {
       this.displayAuxMessage("Cool you found a letter!");
     }
 
+    document.getElementById('userGuess').value = '';
     this.displayStatus();
   }
 
@@ -198,6 +208,7 @@ document.onkeyup = function (event) {
 
   // make sure to capture only lettters, numbers, and ENTER key
   if (!wordGuessGame.isValidKey(userGuess)) {
+    document.getElementById('userGuess').value = '';
     console.log('invalid key');
     return; // break , the key is invalid
   }
@@ -211,6 +222,7 @@ document.onkeyup = function (event) {
     // If repeated letter, skip
     if (wordGuessGame.isRepeatedKey(userGuess)) {
       console.log('repeated key');
+      document.getElementById('userGuess').value = '';
       wordGuessGame.displayAuxMessage("The key has been enter before, try again...");
       return; // break , repeated key
     }

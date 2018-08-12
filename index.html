@@ -21,26 +21,26 @@
           <div class="gameLogoHolder">
             <img class="img-fluid logoImage imgRnd10 imageShadow imageRotate" src="./assets/images/wordgamelogo.png" alt="Armando Pensado">
           </div>
-          <h6 id="auxMsg"class="auxMessage"></h6>
+          <h6 id="auxMsg" class="auxMessage"></h6>
         </div>
         <div class="col-sm-6">
           <div class="row firstRow">
             <div class="col-sm-4"> Status: </div>
             <div class="col-sm-6 gameMessage">
-              <span id="gameMsg" ></span>
+              <span id="gameMsg"></span>
             </div>
           </div>
           <div class="row">
-              <div class="col-sm-4">Wins:</div>
-              <div class="col-sm-6 scores">
-                  <span id="totalWins"> 0 </span>
-              </div>  
+            <div class="col-sm-4">Wins:</div>
+            <div class="col-sm-6 scores">
+              <span id="totalWins"> 0 </span>
+            </div>
           </div>
-          <div class="row">    
-              <div class="col-sm-4">Available guesses:</div>
-              <div class="col-sm-6 scores">
-                  <span id="remGuesses"> 12 </span>
-              </div>
+          <div class="row">
+            <div class="col-sm-4">Available guesses:</div>
+            <div class="col-sm-6 scores">
+              <span id="remGuesses"> 12 </span>
+            </div>
           </div>
         </div>
       </div>
@@ -51,13 +51,39 @@
 
   <div class="section">
     <div class="container">
-      <h5>Current word</h5>
-      <h5>
-        <span id="secretWord"></span>
-      </h5>
-      <h5>Letters already guessed:
-        <span id="prevGuesses"></span>
-      </h5>
+      <!-- row 1 -->
+      <div class="row">
+        <div class="col-sm-4">
+          <h2>Current word</h2>
+        </div>
+        <div class="col-sm-8 secretWord">
+          <h1>
+            <span id="secretWord"></span>
+          </h1>
+        </div>
+      </div>
+      <!-- row 2 -->
+      <div class="row">
+        <div class="col-sm-4">
+          <h5>Letters already guessed:</h5>
+        </div>
+        <div class="col-sm-8 prevLetters">
+          <h4>
+            <span id="prevGuesses"></span>
+          </h4>
+        </div>
+      </div>
+      <!-- row 3 -->
+      <div class="row">
+        <div class="col-sm-4">
+          <h5>Guess:</h5>
+        </div>
+        <div class="col-sm-8">
+          <div class="form-group">
+            <input type="text" class="userGuess" id="userGuess" placeholder="your guess here...">
+          </div>
+        </div>
+      </div>
     </div>
     <!-- container end -->
   </div>
