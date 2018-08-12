@@ -202,8 +202,6 @@ wordGuessGame.initializeGame('new');
 // wait for user keyboard event 
 document.onkeyup = function (event) {
   
-  wordGuessGame.displayAuxMessage("moibile onkeyup:" + event.key);
-
   // grabs the specific key that the user pressed
   let userGuess = event.key
   console.log('userGuess:' + userGuess);
