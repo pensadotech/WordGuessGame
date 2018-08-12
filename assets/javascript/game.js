@@ -74,7 +74,8 @@ let wordGuessGame = {
     // set initial messages
     this.displayAuxMessage("Press any key to get started");
     this.displayGameMessage("Game Started!");
-
+    
+  
     console.log("Game Started:" + this.isGameStarted)
     console.log("Secret word:" + this.targetArr);
   },
@@ -162,6 +163,7 @@ let wordGuessGame = {
     this.remGuesses--;
     // if player guessess reaches the maximum, player looses
     if (this.remGuesses === 0) {
+      looseSound.play();
       // Terminate the game
       this.isGameStarted = false;
       this.displayGameMessage("You loose, Game over");
@@ -169,6 +171,7 @@ let wordGuessGame = {
       // end of the hame
       console.log("Game over: You loose!")
     } else {
+      badLetterSound.play();
       console.log("Your gues is not correct");
       // Incorrect, but mmore chances
       this.displayAuxMessage("Wrong letter, try again ...");
@@ -180,6 +183,7 @@ let wordGuessGame = {
   // Process an correct guess
   correctGuessAction() {
     if (this.remLetters === 0) {
+      winSound.play();
       this.totalWins++;
       // User wins teh game
       this.displayGameMessage("You win!!! Congrats");
@@ -187,6 +191,7 @@ let wordGuessGame = {
       // Terminate the game
       this.isGameStarted = false;
     } else {
+      goodLetterSound.play();
       this.displayAuxMessage("Cool you found a letter!");
     }
 
@@ -198,6 +203,11 @@ let wordGuessGame = {
 
 // Initialize game 
 wordGuessGame.initializeGame('new');
+// Sounds
+goodLetterSound = new sound('./assets/sounds/goodletter.mp3');
+winSound = new sound('./assets/sounds/win.mp3');
+badLetterSound = new sound('./assets/sounds/badletter.mp3');
+looseSound = new sound('./assets/sounds/loose.mp3');
 
 // wait for user keyboard event 
 document.onkeyup = function (event) {
@@ -244,3 +254,19 @@ document.onkeyup = function (event) {
   }
 
 } //document.onkeyup
+
+
+function sound(src) {
+  this.sound = document.createElement("audio");
+  this.sound.src = src;
+  this.sound.setAttribute("preload", "auto");
+  this.sound.setAttribute("controls", "none");
+  this.sound.style.display = "none";
+  document.body.appendChild(this.sound);
+  this.play = function(){
+      this.sound.play();
+  }
+  this.stop = function(){
+      this.sound.pause();
+  }    
+}
