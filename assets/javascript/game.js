@@ -205,6 +205,8 @@ document.onkeyup = function (event) {
   // grabs the specific key that the user pressed
   let userGuess = event.key
   console.log('userGuess:' + userGuess);
+  
+  wordGuessGame.displayAuxMessage('userGuess:' + userGuess);
 
   // make sure to capture only lettters, numbers, and ENTER key
   if (!wordGuessGame.isValidKey(userGuess)) {
