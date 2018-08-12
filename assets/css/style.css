@@ -150,7 +150,6 @@ footer .jumbotron {
 @media screen and (max-width: 985px) and (min-width: 767px) {
     .container {
         min-height: 600px;
-        background-color: rgb(223, 250, 223);
     }
   }
 
@@ -158,7 +157,6 @@ footer .jumbotron {
 
     .container {
         min-height: 300px;
-        background-color: rgb(250, 190, 167);
     }
 
     .logoImage {
