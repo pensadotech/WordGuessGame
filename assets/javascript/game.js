@@ -199,15 +199,15 @@ let wordGuessGame = {
 // Initialize game 
 wordGuessGame.initializeGame('new');
 
-alert("hi there"); 
-
 document.ontouchend = function(event) {
 
-  alert(event.key);
+  wordGuessGame.displayAuxMessage("moibile ontouchend");
 }
 
 // wait for user keyboard event 
 document.onkeyup = function (event) {
+  
+  wordGuessGame.displayAuxMessage("moibile onkeyup");
 
   // grabs the specific key that the user pressed
   let userGuess = event.key
