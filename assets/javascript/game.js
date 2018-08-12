@@ -199,7 +199,9 @@ let wordGuessGame = {
 // Initialize game 
 wordGuessGame.initializeGame('new');
 
-document.ontouchend - function(event) {
+alert("hi there");
+
+document.ontouchend = function(event) {
 
   alert(event.key);
 }
