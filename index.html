@@ -1,12 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Word Guess Game</title> 
+
 </head>
+
 <body>
-    
+
+  <h1>Hangman game basic idea</h1>
+  <h4>Press any key to get started </h4>
+
+  <h4>Wins:
+    <span id="totalWins"> </span>
+  </h4>
+
+  <h4>Current word</h4>
+  <h4>
+    <span id="secretWord"></span>
+  </h4>
+
+  <h4>Number of guesses remaining:
+    <span id="remGuesses"> </span>
+  </h4>
+
+  <h4>Letters already guessed:
+    <span id="prevGuesses"></span>
+  </h4>
+
+  <h4>
+    <span id="message"></span>
+  </h4>
+
+  <!-- javaScripts .................................. -->
+  <script src="./assets/javascript/game.js"></script>
+
 </body>
+
 </html>
