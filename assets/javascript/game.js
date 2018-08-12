@@ -50,7 +50,7 @@ let wordGuessGame = {
   targetArr: [],
   answerArr: [],
   totalWins: 0,
-  remGuesses: 10,
+  remGuesses: 12,
   prevLetters: [],
   remLetters: 0,
   // Game initialization
@@ -65,14 +65,15 @@ let wordGuessGame = {
     if (gameType === 'new') {
       this.totalWins = 0;
     }
-    this.remGuesses = 10;
+    this.remGuesses = 12;
     this.prevLetters = []; // initialize array
     // set remainder letters to the total letters
     this.remLetters = this.answerArr.length;
     // Refresh page
     this.displayStatus();
-    // reflect properties in page
-    this.displayMessage("Game Started!");
+    // set initial messages
+    this.displayAuxMessage("Press any key to get started");
+    this.displayGameMessage("Game Started!");
 
     console.log("Game Started:" + this.isGameStarted)
     console.log("Secret word:" + this.targetArr);
@@ -106,12 +107,15 @@ let wordGuessGame = {
     // Remaining guesses   
     document.querySelector('#remGuesses').innerHTML = this.remGuesses.toString();
     // previous guesses
-    tmpArrStr = this.arrayToHtml(this.prevLetters, ',');
+    tmpArrStr = this.arrayToHtml(this.prevLetters, ' ');
     console.log("prvG:" + tmpArrStr)
     document.querySelector('#prevGuesses').innerHTML = tmpArrStr;
   },
-  displayMessage(message) {
-    document.querySelector('#message').innerHTML = message;
+  displayGameMessage(message) {
+    document.querySelector('#gameMsg').innerHTML = message;
+  },
+  displayAuxMessage(message) {
+    document.querySelector('#auxMsg').innerHTML = message;
   },
   isValidKey(userGuess) {
     // it is a valid key if, 
@@ -122,7 +126,6 @@ let wordGuessGame = {
       (userGuess.charCodeAt(0) >= 97 && userGuess.charCodeAt(0) <= 122)) {
       return true;
     }
-
     return false;
   },
   isRepeatedKey(userGuess) {
@@ -147,33 +150,35 @@ let wordGuessGame = {
   },
   // Process an incorrect guess
   incorrectGuessAction() {
-     // reduce  possible guesses
-     this.remGuesses--;
-     // if player guessess reaches the maximum, player looses
-     if (this.remGuesses === 0) {
-       // Terminate the game
-       this.isGameStarted = false;
-       this.displayMessage("You loose, Game over - hit ENTER to start a new game");
-       // end of the hame
-       console.log("Game over: You loose!")
-     } else {
-       console.log("Your gues is not correct");
-       // Incorrect, but mmore chances
-       this.displayMessage("Nop, the letter not in the word, try again ...");
-     }
+    // reduce  possible guesses
+    this.remGuesses--;
+    // if player guessess reaches the maximum, player looses
+    if (this.remGuesses === 0) {
+      // Terminate the game
+      this.isGameStarted = false;
+      this.displayGameMessage("You loose, Game over");
+      this.displayAuxMessage("hit ENTER to start a new game");
+      // end of the hame
+      console.log("Game over: You loose!")
+    } else {
+      console.log("Your gues is not correct");
+      // Incorrect, but mmore chances
+      this.displayAuxMessage("Wrong letter, try again ...");
+    }
 
-     this.displayStatus();
+    this.displayStatus();
   },
   // Process an correct guess
   correctGuessAction() {
     if (this.remLetters === 0) {
       this.totalWins++;
       // User wins teh game
-      this.displayMessage("You win!!! Congrats - hit ENTER to start a new game");
+      this.displayGameMessage("You win!!! Congrats");
+      this.displayAuxMessage("hit ENTER to start a new game");
       // Terminate the game
       this.isGameStarted = false;
     } else {
-      this.displayMessage("Cool you found a letter ...");
+      this.displayAuxMessage("Cool you found a letter!");
     }
 
     this.displayStatus();
@@ -206,7 +211,7 @@ document.onkeyup = function (event) {
     // If repeated letter, skip
     if (wordGuessGame.isRepeatedKey(userGuess)) {
       console.log('repeated key');
-      wordGuessGame.displayMessage("The key has been enter before, try again...");
+      wordGuessGame.displayAuxMessage("The key has been enter before, try again...");
       return; // break , repeated key
     }
 
@@ -225,5 +230,5 @@ document.onkeyup = function (event) {
       wordGuessGame.correctGuessAction();
     }
   }
-  
+
 } //document.onkeyup

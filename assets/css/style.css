@@ -1,1 +1,120 @@
 /* Personal Styles */
+
+body {
+    /* Remove margins and padding around content */
+    margin: 0;
+    padding: 0;
+    /* Fix background during scrolling */
+    background-attachment: fixed;
+    /* Use scalable background image (cross borwser) */
+    background-image: url("../images/questionMarks.jpg");
+    background-position: center center;
+    background-attachment: fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    color: #003A6C
+}
+
+.gradBlue {
+    /* Gradient for NavBar */
+    background-image: -webkit-linear-gradient( top, #003A6C, gray);
+    background-image: -moz-linear-gradient( top, #003A6C, gray);
+    background-image: -ms-linear-gradient( top, #003A6C, gray);
+    background-image: -o-linear-gradient( top, #003A6C, gray);
+    background-image: linear-gradient( top, #003A6C, gray);
+}
+
+.imgRnd10 {
+    /* Rounded image corners */
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+
+.imgRnd5 {
+    /* Rounded image corners */
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.imageShadow {
+    /* Add drop shadow */
+    -webkit-box-shadow: 2px 2px 3px 2px darkblue;
+    -moz-box-shadow: 2px 2px 3px 2px darkblue;
+    box-shadow: 2px 2px 3px 2px darkblue;
+}
+
+.imageRotate {
+    /* Rotate Image */
+    -webkit-transform: rotate( 3deg);
+    -moz-transform: rotate( 3deg);
+    -o-transform: rotate( 3deg);
+    -ms-transform: rotate( 3deg);
+    transform: rotate( 3deg);
+}
+
+/*  header  ..................................... */
+
+header .jumbotron {
+    color: white;
+    /* Controling the size of a jumbotron */
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 0px;
+}
+
+.gameLogoHolder {
+    margin-bottom: 20px;
+}
+
+.logoImage {
+    width: 250px;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.auxMessage {
+    color: rgb(226, 211, 4);
+}
+
+.gameMessage {
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(8, 212, 76);
+    text-align: center;
+}
+
+.firstRow {
+    margin-top: 30px;
+}
+
+.scores {
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(63, 178, 245);
+    text-align: center;
+}
+
+/* Container ..................................... */
+
+.container {
+    background-color: #DBE9F4;
+    /* Transparent background */
+    opacity: 0.9;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    /* Set min height to fill larger screens */
+    min-height: 600px;
+}
+
+/*  Footer ..................................... */
+
+footer .jumbotron {
+    color: white;
+    /* Controling the size of a jumbotron */
+    padding-top: 10px;
+    padding-bottom: 10px;
+}

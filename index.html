@@ -5,37 +5,79 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Word Guess Game</title> 
+  <title>Word Guess Game</title>
 
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
 <body>
 
-  <h1>Hangman game basic idea</h1>
-  <h4>Press any key to get started </h4>
+  <header class="header">
+    <div class="jumbotron text-center gradBlue">
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="gameLogoHolder">
+            <img class="img-fluid logoImage imgRnd10 imageShadow imageRotate" src="./assets/images/wordgamelogo.png" alt="Armando Pensado">
+          </div>
+          <h6 id="auxMsg"class="auxMessage"></h6>
+        </div>
+        <div class="col-sm-6">
+          <div class="row firstRow">
+            <div class="col-sm-4"> Status: </div>
+            <div class="col-sm-6 gameMessage">
+              <span id="gameMsg" ></span>
+            </div>
+          </div>
+          <div class="row">
+              <div class="col-sm-4">Wins:</div>
+              <div class="col-sm-6 scores">
+                  <span id="totalWins"> 0 </span>
+              </div>  
+          </div>
+          <div class="row">    
+              <div class="col-sm-4">Available guesses:</div>
+              <div class="col-sm-6 scores">
+                  <span id="remGuesses"> 12 </span>
+              </div>
+          </div>
+        </div>
+      </div>
 
-  <h4>Wins:
-    <span id="totalWins"> </span>
-  </h4>
+    </div>
+  </header>
+  <!-- header end -->
 
-  <h4>Current word</h4>
-  <h4>
-    <span id="secretWord"></span>
-  </h4>
+  <div class="section">
+    <div class="container">
+      <h5>Current word</h5>
+      <h5>
+        <span id="secretWord"></span>
+      </h5>
+      <h5>Letters already guessed:
+        <span id="prevGuesses"></span>
+      </h5>
+    </div>
+    <!-- container end -->
+  </div>
+  <!-- section end -->
 
-  <h4>Number of guesses remaining:
-    <span id="remGuesses"> </span>
-  </h4>
+  <!-- Footer at the bottom of teh screen -->
+  <footer calass="footer">
+    <div class="jumbotron text-center gradBlue">
+      <p>Copyright &copy;</p>
+    </div>
+  </footer>
 
-  <h4>Letters already guessed:
-    <span id="prevGuesses"></span>
-  </h4>
-
-  <h4>
-    <span id="message"></span>
-  </h4>
 
   <!-- javaScripts .................................. -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
   <script src="./assets/javascript/game.js"></script>
 
 </body>
