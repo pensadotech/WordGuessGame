@@ -76,10 +76,6 @@ header .jumbotron {
     margin-left: 20px;
 }
 
-.auxMessage {
-    color:  rgb(4, 146, 51);
-}
-
 .gameMessage {
     font-size: 20px;
     font-weight: bold;
@@ -98,14 +94,8 @@ header .jumbotron {
     text-align: center;
 }
 
-.userGuess {
-    width: 270px;
-}
-
-
-
-
 /* Container ..................................... */
+
 .container {
     background-color: #DBE9F4;
     /* Transparent background */
@@ -127,6 +117,17 @@ header .jumbotron {
     text-align: left;
 }
 
+.guessForm {
+    margin-top: 0px;
+    padding-left: 0px;
+    padding-right: 50px;
+}
+
+.auxMessage {
+    color: rgb(4, 146, 51);
+    text-align: center;
+}
+
 /*  Footer ..................................... */
 
 footer .jumbotron {
@@ -137,11 +138,11 @@ footer .jumbotron {
 }
 
 /*  Mediq Queries ................................. */
+
 @media screen and (max-width: 771px) {
     .firstRow {
         margin-top: 0px;
     }
-
     .container {
         min-height: 400px;
     }
@@ -151,23 +152,18 @@ footer .jumbotron {
     .container {
         min-height: 600px;
     }
-  }
+}
 
 @media screen and (max-width: 767px) {
-
     .container {
         min-height: 300px;
     }
-
     .logoImage {
         width: 200px;
         margin-top: 10px;
         margin-left: 10px;
     }
-
     .jumbotron {
         font-size: 15px;
     }
-
 }
-
