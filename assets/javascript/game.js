@@ -199,6 +199,11 @@ let wordGuessGame = {
 // Initialize game 
 wordGuessGame.initializeGame('new');
 
+document.ontouchend - function(event) {
+
+  alert(event.key);
+}
+
 // wait for user keyboard event 
 document.onkeyup = function (event) {
 
