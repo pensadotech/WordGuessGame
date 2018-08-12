@@ -206,10 +206,6 @@ document.onkeyup = function (event) {
   let userGuess = event.key
   console.log('userGuess:' + userGuess);
   
-  //TST
-  // document.getElementById('tstMsg').value = 'userGuess:' + userGuess;
-  document.querySelector('#tstMsg').innerHTML = userGuess;
-    
   // make sure to capture only lettters, numbers, and ENTER key
   if (!wordGuessGame.isValidKey(userGuess)) {
     document.getElementById('userGuess').value = '';
