@@ -74,8 +74,8 @@ let wordGuessGame = {
     // set initial messages
     this.displayAuxMessage("Press any key to get started");
     this.displayGameMessage("Game Started!");
-    
-  
+
+
     console.log("Game Started:" + this.isGameStarted)
     console.log("Secret word:" + this.targetArr);
   },
@@ -201,8 +201,9 @@ let wordGuessGame = {
 
 } // wordGame object 
 
-// Initialize game 
+// Initialize game ................................................. 
 wordGuessGame.initializeGame('new');
+
 // Sounds
 goodLetterSound = new sound('./assets/sounds/goodletter.mp3');
 winSound = new sound('./assets/sounds/win.mp3');
@@ -211,11 +212,11 @@ looseSound = new sound('./assets/sounds/loose.mp3');
 
 // wait for user keyboard event 
 document.onkeyup = function (event) {
-  
+
   // grabs the specific key that the user pressed
   let userGuess = event.key
   console.log('userGuess:' + userGuess);
-  
+
   // make sure to capture only lettters, numbers, and ENTER key
   if (!wordGuessGame.isValidKey(userGuess)) {
     document.getElementById('userGuess').value = '';
@@ -255,7 +256,7 @@ document.onkeyup = function (event) {
 
 } //document.onkeyup
 
-
+//  Functions ......................................................
 function sound(src) {
   this.sound = document.createElement("audio");
   this.sound.src = src;
@@ -263,10 +264,10 @@ function sound(src) {
   this.sound.setAttribute("controls", "none");
   this.sound.style.display = "none";
   document.body.appendChild(this.sound);
-  this.play = function(){
-      this.sound.play();
+  this.play = function () {
+    this.sound.play();
   }
-  this.stop = function(){
-      this.sound.pause();
-  }    
+  this.stop = function () {
+    this.sound.pause();
+  }
 }
