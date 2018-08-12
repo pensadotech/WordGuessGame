@@ -103,11 +103,7 @@ header .jumbotron {
 }
 
 
-@media screen and (max-width: 771px) {
-    .firstRow {
-        margin-top: 0px;
-    }
-}
+
 
 /* Container ..................................... */
 .container {
@@ -139,3 +135,41 @@ footer .jumbotron {
     padding-top: 10px;
     padding-bottom: 10px;
 }
+
+/*  Mediq Queries ................................. */
+@media screen and (max-width: 771px) {
+    .firstRow {
+        margin-top: 0px;
+    }
+
+    .container {
+        min-height: 400px;
+    }
+}
+
+@media screen and (max-width: 985px) and (min-width: 767px) {
+    .container {
+        min-height: 600px;
+        background-color: rgb(223, 250, 223);
+    }
+  }
+
+@media screen and (max-width: 767px) {
+
+    .container {
+        min-height: 300px;
+        background-color: rgb(250, 190, 167);
+    }
+
+    .logoImage {
+        width: 200px;
+        margin-top: 10px;
+        margin-left: 10px;
+    }
+
+    .jumbotron {
+        font-size: 15px;
+    }
+
+}
+
