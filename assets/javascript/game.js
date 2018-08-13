@@ -250,7 +250,7 @@ function ProcessUserInput(userGuess) {
   }
 
   if (userGuess === "Enter") {
-    // if user hits ENTERN, initialize game 
+    // if user hits ENTER, initialize game 
     wordGuessGame.initializeGame('restart');
 
   } else if (wordGuessGame.isGameStarted) {
