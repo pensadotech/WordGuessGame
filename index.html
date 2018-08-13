@@ -78,18 +78,25 @@
         <div class="col-sm-4">
           <h5>Guess:</h5>
         </div>
-        <div class="col-sm-8">
-          <div class="guessForm">
-              <div class="form-group">
-                  <input type="text" class="form-control" id="userGuess" placeholder="mobile click here...">
-                </div>
-          </div>
+        <div class="col-sm-4">
+          <form class="guessForm">
+            <div class="form-group">
+              <input type="text" class="form-control" 
+                     id="userGuess" 
+                     placeholder="Enter guess here...">
+            </div>
+          </form>  
+        </div>
+        <div class="col-sm-4">
+            <button type="submit" 
+            class="btn btn-primary " 
+            onclick="userGuessInput()">Submit</button>
         </div>
       </div>
       <!-- row 4 -->
       <div class="row">
         <div class="col-sm-12">
-            <h6 id="auxMsg" class="auxMessage"></h6>
+          <h6 id="auxMsg" class="auxMessage"></h6>
         </div>
       </div>
     </div>

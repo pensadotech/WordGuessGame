@@ -210,11 +210,36 @@ winSound = new sound('./assets/sounds/win.mp3');
 badLetterSound = new sound('./assets/sounds/badletter.mp3');
 looseSound = new sound('./assets/sounds/loose.mp3');
 
-// wait for user keyboard event 
+// button submit .......................................
+function userGuessInput() {
+  // Get avalue in input
+  let userGuess = document.getElementById("userGuess").value;
+  userGuess = userGuess.trim();
+  // Get first letter in input 
+  userGuess = userGuess.substring(0, 1);
+  // userGuess.charCodeAt(0)
+
+  // remove entry from screen
+  document.getElementById('userGuess').value = '';
+  // Process the user guess
+  ProcessUserInput(userGuess);
+}
+
+// Event key input ........................................ 
 document.onkeyup = function (event) {
+  // Get user enetered key
+  let userGuess = event.key;
+  userGuess = userGuess.trim();
+
+  if (event.key !== 'Unidentified') {
+    ProcessUserInput(userGuess);
+  }
+}
+
+// Process user input guess ................................ 
+function ProcessUserInput(userGuess) {
 
   // grabs the specific key that the user pressed
-  let userGuess = event.key
   console.log('userGuess:' + userGuess);
 
   // make sure to capture only lettters, numbers, and ENTER key
