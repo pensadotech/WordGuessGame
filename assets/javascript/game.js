@@ -254,6 +254,9 @@ function ProcessUserInput(userGuess) {
     wordGuessGame.initializeGame('restart');
 
   } else if (wordGuessGame.isGameStarted) {
+    
+    // Make any user entry lower case
+    userGuess = userGuess.toLowerCase();
 
     // If repeated letter, skip
     if (wordGuessGame.isRepeatedKey(userGuess)) {
