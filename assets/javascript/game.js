@@ -161,15 +161,15 @@ let wordGuessGame = {
   incorrectGuessAction() {
     // reduce  possible guesses
     this.remGuesses--;
-    // if player guessess reaches the maximum, player looses
+    // if player guessess reaches the maximum, player loses
     if (this.remGuesses === 0) {
-      looseSound.play();
+      loseSound.play();
       // Terminate the game
       this.isGameStarted = false;
-      this.displayGameMessage("You loose, Game over");
+      this.displayGameMessage("You lose, Game over");
       this.displayAuxMessage("hit ENTER to start a new game");
       // end of the hame
-      console.log("Game over: You loose!")
+      console.log("Game over: You lose!")
     } else {
       badLetterSound.play();
       console.log("Your gues is not correct");
@@ -208,7 +208,7 @@ wordGuessGame.initializeGame('new');
 goodLetterSound = new sound('./assets/sounds/goodletter.mp3');
 winSound = new sound('./assets/sounds/win.mp3');
 badLetterSound = new sound('./assets/sounds/badletter.mp3');
-looseSound = new sound('./assets/sounds/loose.mp3');
+loseSound = new sound('./assets/sounds/lose.mp3');
 
 // button submit .......................................
 function userGuessInput() {
@@ -230,7 +230,8 @@ document.onkeyup = function (event) {
   // Get user enetered key
   let userGuess = event.key;
   userGuess = userGuess.trim();
-
+  
+  // Only send value if not unidentified
   if (event.key !== 'Unidentified') {
     ProcessUserInput(userGuess);
   }
