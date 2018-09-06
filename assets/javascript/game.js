@@ -1,17 +1,4 @@
-// ## Option Two: Word Guess Game (Challenge - Recommended)
-// 1. [Watch the demo](hangman-game-demo.mov).
-// 2. Choose a theme for your game! In the demo, we picked an 80s theme: 80s questions, 80s sound and an 80s aesthetic. You can choose any subject for your theme, though, so be creative!
-// 3. Use key events to listen for the letters that your players will type.
-// 4. Display the following on the page:
-// 5. Press any key to get started!
-// 6. Wins: (# of times user guessed the word correctly).
-//    * If the word is `madonna`, display it like this when the game starts: `_ _ _ _ _ _ _`.
-//    * As the user guesses the correct letters, reveal them: `m a d o _  _ a`.
-// 7. Number of Guesses Remaining: (# of guesses remaining for the user).
-// 8. Letters Already Guessed: (Letters the user has guessed, displayed like `L Z Y H`).
-// 9. After the user wins/loses the game should automatically choose another word and make the user play it.
-
-console.log("hangman game basic");
+// Word Guess Game 
 
 // Obects ........................................................
 // word Generator Object
@@ -75,9 +62,6 @@ let wordGuessGame = {
     this.displayAuxMessage("Press any key to get started");
     this.displayGameMessage("Game Started!");
 
-
-    console.log("Game Started:" + this.isGameStarted)
-    console.log("Secret word:" + this.targetArr);
   },
   // function to set initial answer array
   setAnswerArray() {
@@ -109,7 +93,6 @@ let wordGuessGame = {
     document.querySelector('#remGuesses').innerHTML = this.remGuesses.toString();
     // previous guesses
     tmpArrStr = this.arrayToHtml(this.prevLetters, ' ');
-    console.log("prvG:" + tmpArrStr)
     document.querySelector('#prevGuesses').innerHTML = tmpArrStr;
   },
   displayGameMessage(message) {
@@ -169,10 +152,8 @@ let wordGuessGame = {
       this.displayGameMessage("You lose, Game over");
       this.displayAuxMessage("hit ENTER to start a new game");
       // end of the hame
-      console.log("Game over: You lose!")
     } else {
       badLetterSound.play();
-      console.log("Your gues is not correct");
       // Incorrect, but mmore chances
       this.displayAuxMessage("Wrong letter, try again ...");
     }
@@ -230,7 +211,7 @@ document.onkeyup = function (event) {
   // Get user enetered key
   let userGuess = event.key;
   userGuess = userGuess.trim();
-  
+
   // Only send value if not unidentified
   if (event.key !== 'Unidentified') {
     ProcessUserInput(userGuess);
@@ -240,13 +221,9 @@ document.onkeyup = function (event) {
 // Process user input guess ................................ 
 function ProcessUserInput(userGuess) {
 
-  // grabs the specific key that the user pressed
-  console.log('userGuess:' + userGuess);
-
   // make sure to capture only lettters, numbers, and ENTER key
   if (!wordGuessGame.isValidKey(userGuess)) {
     document.getElementById('userGuess').value = '';
-    console.log('invalid key');
     return; // break , the key is invalid
   }
 
@@ -255,13 +232,12 @@ function ProcessUserInput(userGuess) {
     wordGuessGame.initializeGame('restart');
 
   } else if (wordGuessGame.isGameStarted) {
-    
+
     // Make any user entry lower case
     userGuess = userGuess.toLowerCase();
 
     // If repeated letter, skip
     if (wordGuessGame.isRepeatedKey(userGuess)) {
-      console.log('repeated key');
       document.getElementById('userGuess').value = '';
       wordGuessGame.displayAuxMessage("The key has been enter before, try again...");
       return; // break , repeated key
