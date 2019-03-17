@@ -1,7 +1,6 @@
 # WordGuessGame
 
-Word Guess Game
-Similar to the Hangman game, but without anyone getting hanged.
+Word Guess Game similar to the Hangman game, but without anyone getting hanged.
 
 _by Armando Pensado_
 
