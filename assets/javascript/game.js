@@ -23,7 +23,7 @@ const wordGenerator = {
     const rndInt = Math.floor(rndNum);
     // get the word base on random number
     const theWord = this.wordArr[rndInt];
-    // split word inot a letter array
+    // split word into a letter array
     const wordArr = theWord.split('');
     // return teh word as a letter array
     return wordArr;
@@ -182,7 +182,7 @@ let wordGuessGame = {
 
 } // wordGame object 
 
-// Initialize game ................................................. 
+// Initialize game .................................... 
 wordGuessGame.initializeGame('new');
 
 // Sounds
@@ -191,7 +191,8 @@ winSound = new sound('./assets/sounds/win.mp3');
 badLetterSound = new sound('./assets/sounds/badletter.mp3');
 loseSound = new sound('./assets/sounds/lose.mp3');
 
-// button submit .......................................
+// button submit .....................................
+// For smal devices where events work differently
 function userGuessInput() {
   // Get avalue in input
   let userGuess = document.getElementById("userGuess").value;
@@ -206,7 +207,8 @@ function userGuessInput() {
   ProcessUserInput(userGuess);
 }
 
-// Event key input ........................................ 
+// Event key input ............................... 
+// Thsi works fine with regular computers
 document.onkeyup = function (event) {
   // Get user enetered key
   let userGuess = event.key;
