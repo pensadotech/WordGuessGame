@@ -10,7 +10,10 @@ This project is a game to guess secret words. The application has an array of wo
 
 The player wins if can guess successfully complete the word, or losses if it runs out of failed guesses.
 
+ As the user enters the letters, the application will provide feedback if the letter is part of the word or not, or even if the user typed a repeated one. 
+
 ![MainPage](./docs/WordGame.png)
+
 
 ## Who can benefit from this application
 
@@ -22,9 +25,17 @@ The developer is welcome to clone or download the project to the personal device
 
 There is not specials initialization instructions, as it is plain HTML, CSS, and JavaScript. 
 
+The developer will find a game.js file that contains the core of the functionality. In there, the wordGuessGame object represents the game, and it uses the wordGenerator object to obtain at random one secret word.
+
+The bottom section has the events for controlling the user input and process each letter. To start a new game the user needs to hit the ENTER keyboard. 
+
+After cloning the application and using Microsoft Visual Studio, the project folder should resemble as depicted below.
+
+![ProjectLayout](./docs/WordgameLayout.png)
+
 ## Who maintains and contributes to the project
 
-This is a project for our personal learning process.
+This is a project for my personal learning process.
 
 ## Where users can get help with the project
 
