@@ -37,7 +37,7 @@ After cloning the application and using Microsoft Visual Studio, the project fol
 
 This is a project for my personal learning process.
 
-## Where users can get help with the project
+## Project references
 
 * JavaScript : MDN https://developer.mozilla.org/en-US/docs/Web/JavaScript
 * w3schools JavaScript tutotials : https://www.w3schools.com/js/
