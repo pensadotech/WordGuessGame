@@ -1,7 +1,7 @@
 // Word Guess Game 
 
 // Objects ........................................................
-// Word Generator Object
+// word Generator Object
 const wordGenerator = {
   // Possible words to guess
   wordArr: [
@@ -15,17 +15,17 @@ const wordGenerator = {
     'movies',
     'avengers'
   ],
-  // Function to get one random word
+  // function to get one random word
   getRandomWord() {
-    // Get a random number from 0 to the array length
+    // get a random number from 0 to array length
     const rndNum = Math.random() * this.wordArr.length;
-    // Transform the random number into an integer
+    // transform the random nun into an integer
     const rndInt = Math.floor(rndNum);
-    // Get the word based on the random number
+    // get the word base on random number
     const theWord = this.wordArr[rndInt];
-    // Split the word into a letter array
+    // split word into a letter array
     const wordArr = theWord.split('');
-    // Return the word as a letter array
+    // return teh word as a letter array
     return wordArr;
   }
 } // wordGenerator
@@ -44,33 +44,33 @@ let wordGuessGame = {
   initializeGame(gameType) {
     // Indicate game has started
     this.isGameStarted = true;
-    // Get secret word as an array
+    // get secret word as an array
     this.targetArr = wordGenerator.getRandomWord();
-    // Set underscore array for screen 
+    // Set under =line array for screen 
     this.setAnswerArray();
-    // Set initial values
+    // set initial values
     if (gameType === 'new') {
       this.totalWins = 0;
     }
     this.remGuesses = 12;
     this.prevLetters = []; // initialize array
-    // Set remainder letters to the total letters
+    // set remainder letters to the total letters
     this.remLetters = this.answerArr.length;
     // Refresh page
     this.displayStatus();
-    // Set initial messages
+    // set initial messages
     this.displayAuxMessage("Press any key to get started");
     this.displayGameMessage("Game Started!");
 
   },
-  // Function to set initial answer array
+  // function to set initial answer array
   setAnswerArray() {
-    // Create "_" for every target letter
+    // create "_" for every target letetr 
     this.answerArr = this.targetArr.map(function () {
       return '_';
     });
   },
-  // Function to remove delimiter in array
+  // function to remove delimiter in array
   arrayToHtml(elementsArr, delimiter = ' ') {
     var newstr = '';
     elementsArr.forEach(function (element) {
@@ -84,14 +84,14 @@ let wordGuessGame = {
     return newstr;
   },
   displayStatus() {
-    // Total wins
+    //total wins
     document.querySelector('#totalWins').innerHTML = this.totalWins.toString();
-    // Secret word (hidden representation)
+    // Secret word ( hidden representation)
     var tmpArrStr = this.arrayToHtml(this.answerArr);
     document.querySelector('#secretWord').innerHTML = tmpArrStr;
     // Remaining guesses   
     document.querySelector('#remGuesses').innerHTML = this.remGuesses.toString();
-    // Previous guesses
+    // previous guesses
     tmpArrStr = this.arrayToHtml(this.prevLetters, ' ');
     document.querySelector('#prevGuesses').innerHTML = tmpArrStr;
   },
@@ -102,9 +102,9 @@ let wordGuessGame = {
     document.querySelector('#auxMsg').innerHTML = message;
   },
   isValidKey(userGuess) {
-    // It is a valid key if,
-    // 1. it is the ENTER key, a number, or a lower/upper case letter
-    // Make sure no spaces are valid
+    // it is a valid key if, 
+    // 1. it is ENTER key, it is a number, a lower/upper case letter
+    // make sure not spaces are valid
     userGuess = userGuess.trim();
 
     if (userGuess.length > 1) {
@@ -121,16 +121,16 @@ let wordGuessGame = {
     return false;
   },
   isRepeatedKey(userGuess) {
-    // Is the guess a repeated letter?
+    // Is teh guess a repeated letter
     var isInArray = this.prevLetters.indexOf(userGuess);
     return isInArray < 0 ? false : true;
   },
   isLetterInWord(userGuess) {
-    // Check if the player guess is a letter in the secret word
+    // Check if player guess is a letter in the secret word
     var isInWord = false;
     for (var i = 0; i < this.targetArr.length; i++) {
-      // If the user guess matches a letter,
-      // replace the letter in the answer array
+      // if the user guess mathces a leteter
+      // replace the letter in the anwer array
       if (this.targetArr[i] === userGuess) {
         this.answerArr[i] = userGuess;
         this.remLetters--;
@@ -142,31 +142,31 @@ let wordGuessGame = {
   },
   // Process an incorrect guess
   incorrectGuessAction() {
-    // Reduce possible guesses
+    // reduce  possible guesses
     this.remGuesses--;
-    // If the player guesses reach the maximum, the player loses
+    // if player guessess reaches the maximum, player loses
     if (this.remGuesses === 0) {
       loseSound.play();
       // Terminate the game
       this.isGameStarted = false;
       this.displayGameMessage("You lose, Game over");
       this.displayAuxMessage("hit ENTER to start a new game");
-      // End of the game
+      // end of the hame
     } else {
       badLetterSound.play();
-      // Incorrect, but more chances
+      // Incorrect, but mmore chances
       this.displayAuxMessage("Wrong letter, try again ...");
     }
 
     document.getElementById('userGuess').value = '';
     this.displayStatus();
   },
-  // Process a correct guess
+  // Process an correct guess
   correctGuessAction() {
     if (this.remLetters === 0) {
       winSound.play();
       this.totalWins++;
-      // User wins the game
+      // User wins teh game
       this.displayGameMessage("You win!!! Congrats");
       this.displayAuxMessage("hit ENTER to start a new game");
       // Terminate the game
@@ -191,26 +191,26 @@ winSound = new sound('./assets/sounds/win.mp3');
 badLetterSound = new sound('./assets/sounds/badletter.mp3');
 loseSound = new sound('./assets/sounds/lose.mp3');
 
-// Button submit .....................................
-// For small devices where events work differently
+// button submit .....................................
+// For smal devices where events work differently
 function userGuessInput() {
-  // Get value in input
+  // Get avalue in input
   let userGuess = document.getElementById("userGuess").value;
   userGuess = userGuess.trim();
   // Get first letter in input 
   userGuess = userGuess.substring(0, 1);
   // userGuess.charCodeAt(0)
 
-  // Remove entry from screen
+  // remove entry from screen
   document.getElementById('userGuess').value = '';
   // Process the user guess
   ProcessUserInput(userGuess);
 }
 
 // Event key input ............................... 
-// This works fine with regular computers
+// Thsi works fine with regular computers
 document.onkeyup = function (event) {
-  // Get user entered key
+  // Get user enetered key
   let userGuess = event.key;
   userGuess = userGuess.trim();
 
@@ -223,26 +223,26 @@ document.onkeyup = function (event) {
 // Process user input guess ................................ 
 function ProcessUserInput(userGuess) {
 
-  // Make sure to capture only letters, numbers, and the ENTER key
+  // make sure to capture only lettters, numbers, and ENTER key
   if (!wordGuessGame.isValidKey(userGuess)) {
     document.getElementById('userGuess').value = '';
-    return; // break, the key is invalid
+    return; // break , the key is invalid
   }
 
   if (userGuess === "Enter") {
-    // If user hits ENTER, initialize game 
+    // if user hits ENTER, initialize game 
     wordGuessGame.initializeGame('restart');
 
   } else if (wordGuessGame.isGameStarted) {
 
-    // Make any user entry lowercase
+    // Make any user entry lower case
     userGuess = userGuess.toLowerCase();
 
     // If repeated letter, skip
     if (wordGuessGame.isRepeatedKey(userGuess)) {
       document.getElementById('userGuess').value = '';
-      wordGuessGame.displayAuxMessage("The key has been entered before, try again...");
-      return; // break, repeated key
+      wordGuessGame.displayAuxMessage("The key has been enter before, try again...");
+      return; // break , repeated key
     }
 
     // Record entered letter in array
@@ -251,10 +251,10 @@ function ProcessUserInput(userGuess) {
     // Check if player guess is a letter in the secret word
     let isCorrectGuess = wordGuessGame.isLetterInWord(userGuess);
 
-    // If not a correct guess, increment player guesses and
+    // if not correct guess, increment player guesses and
     // check if remaining guesses are zero
     if (!isCorrectGuess) {
-      // Process an incorrect guess    
+      // Process an incorrct guess    
       wordGuessGame.incorrectGuessAction();
     } else {
       wordGuessGame.correctGuessAction();
@@ -263,7 +263,7 @@ function ProcessUserInput(userGuess) {
 
 } //document.onkeyup
 
-// Functions ......................................................
+//  Functions ......................................................
 function sound(src) {
   this.sound = document.createElement("audio");
   this.sound.src = src;

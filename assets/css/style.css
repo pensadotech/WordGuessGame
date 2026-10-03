@@ -1,12 +1,12 @@
 /* Personal Styles */
 
 body {
-    /* Remove margins and padding around content */
+    /* Remove default browser spacing so the layout sits flush against the page edges. */
     margin: 0;
     padding: 0;
-    /* Fix background during scrolling */
+    /* Keep the background image fixed while the page scrolls, creating a stable visual backdrop. */
     background-attachment: fixed;
-    /* Use scalable background image (cross borwser) */
+    /* Use the question-mark background image to reinforce the word-game theme across the page. */
     background-image: url("../images/questionMarks.jpg");
     background-position: center center;
     background-attachment: fixed;
@@ -14,11 +14,12 @@ body {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    /* Set the default text color for readable content on the themed background. */
     color: #003A6C
 }
 
 .gradBlue {
-    /* Gradient for NavBar */
+    /* Apply a blue-to-gray gradient to create the header and footer visual emphasis. */
     background-image: -webkit-linear-gradient( top, #003A6C, gray);
     background-image: -moz-linear-gradient( top, #003A6C, gray);
     background-image: -ms-linear-gradient( top, #003A6C, gray);
@@ -27,28 +28,28 @@ body {
 }
 
 .imgRnd10 {
-    /* Rounded image corners */
+    /* Round the corners of the logo image to give it a softer, more polished look. */
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     border-radius: 10px;
 }
 
 .imgRnd5 {
-    /* Rounded image corners */
+    /* Slightly round the corners of smaller decorative images for subtle visual consistency. */
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
 }
 
 .imageShadow {
-    /* Add drop shadow */
+    /* Add a blue drop shadow to make the logo or images stand out from the background. */
     -webkit-box-shadow: 2px 2px 3px 2px darkblue;
     -moz-box-shadow: 2px 2px 3px 2px darkblue;
     box-shadow: 2px 2px 3px 2px darkblue;
 }
 
 .imageRotate {
-    /* Rotate Image */
+    /* Tilt the logo slightly to give the header a more playful, dynamic appearance. */
     -webkit-transform: rotate( 3deg);
     -moz-transform: rotate( 3deg);
     -o-transform: rotate( 3deg);
@@ -59,24 +60,28 @@ body {
 /*  header  ..................................... */
 
 header .jumbotron {
+    /* Keep the header panels readable and visually consistent with the rest of the app. */
     color: white;
-    /* Controling the size of a jumbotron */
+    /* Reduce the jumbotron height to provide a compact, polished top section. */
     padding-top: 10px;
     padding-bottom: 10px;
     margin-bottom: 0px;
 }
 
 .gameLogoHolder {
+    /* Add space below the logo so the header content does not crowd the image. */
     margin-bottom: 20px;
 }
 
 .logoImage {
+    /* Size the logo prominently while keeping it proportional in the header layout. */
     width: 250px;
     margin-top: 20px;
     margin-left: 20px;
 }
 
 .gameMessage {
+    /* Highlight the current game status in green to communicate a success or active state. */
     font-size: 20px;
     font-weight: bold;
     color: rgb(8, 212, 76);
@@ -84,10 +89,12 @@ header .jumbotron {
 }
 
 .firstRow {
+    /* Push the first status row down so it sits visually centered in the header. */
     margin-top: 30px;
 }
 
 .scores {
+    /* Display score and remaining guesses in a contrasting blue to draw attention to stats. */
     font-size: 20px;
     font-weight: bold;
     color: rgb(63, 178, 245);
@@ -97,20 +104,23 @@ header .jumbotron {
 /* Container ..................................... */
 
 .container {
+    /* Give the main game area a soft blue panel background to stand out from the page. */
     background-color: #DBE9F4;
-    /* Transparent background */
+    /* Make the panel slightly translucent so the background image remains visible behind it. */
     opacity: 0.9;
     margin-top: 10px;
     margin-bottom: 10px;
-    /* Set min height to fill larger screens */
+    /* Ensure the game area keeps a substantial height on larger screens for comfortable play. */
     min-height: 600px;
 }
 
 .secretWord {
+    /* Show the hidden word in a strong green color to give the player a clear visual cue. */
     color: green;
 }
 
 .prevLetters {
+    /* Make previously guessed letters stand out in a prominent blue for easy review. */
     font-size: 30px;
     font-weight: bold;
     color: rgb(10, 13, 236);
@@ -118,12 +128,14 @@ header .jumbotron {
 }
 
 .guessForm {
+    /* Remove extra spacing around the input form so the guess field fits neatly in the layout. */
     margin-top: 0px;
     padding-left: 0px;
     padding-right: 0px;
 }
 
 .auxMessage {
+    /* Use green text for helper messages so they read as positive or instructional feedback. */
     color: rgb(4, 146, 51);
     text-align: center;
 }
@@ -131,8 +143,9 @@ header .jumbotron {
 /*  Footer ..................................... */
 
 footer .jumbotron {
+    /* Keep the footer section aligned visually with the header while preserving readable contrast. */
     color: white;
-    /* Controling the size of a jumbotron */
+    /* Maintain compact spacing in the footer to match the header design. */
     padding-top: 10px;
     padding-bottom: 10px;
 }
@@ -141,24 +154,29 @@ footer .jumbotron {
 
 @media screen and (max-width: 771px) {
     .firstRow {
+        /* Reduce the top spacing on small screens so the status content fits without crowding. */
         margin-top: 0px;
     }
     .container {
+        /* Lower the container height on smaller devices to better fit narrower screens. */
         min-height: 400px;
     }
 }
 
 @media screen and (max-width: 985px) and (min-width: 767px) {
     .container {
+        /* Maintain a comfortable vertical space in tablet-sized layouts without excessive empty area. */
         min-height: 600px;
     }
 }
 
 @media screen and (max-width: 767px) {
     .container {
+        /* Keep the main panel from taking too much space on mobile screens. */
         min-height: 300px;
     }
     .logoImage {
+        /* Scale down the logo on mobile so it remains balanced within the compact header. */
         width: 200px;
         margin-top: 10px;
         margin-left: 10px;
